@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dif20onumbk7d"]
+[gd_scene load_steps=5 format=3 uid="uid://dif20onumbk7d"]
 
 [ext_resource type="PackedScene" uid="uid://b0oa62f6hadl0" path="res://scenes/unit/unit.tscn" id="1_nbq3v"]
 [ext_resource type="Script" uid="uid://dpgf6otwsy2wo" path="res://scenes/player_well_rounded/scripts/player_well_rounded.gd" id="2_sgh5l"]
+[ext_resource type="Resource" uid="uid://ily2pkpehjv4" path="res://resources/units/players/stats_player_well_rounded.tres" id="3_sgh5l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ds5ef"]
 radius = 53.08484
@@ -9,8 +10,9 @@ radius = 53.08484
 [node name="PlayerWellRounded" instance=ExtResource("1_nbq3v")]
 script = ExtResource("2_sgh5l")
 dash_duration = 0.5
-dash_speed_multi = 2.5
+dash_speed_multi = 4
 dash_cooldown = 1.5
+stats = ExtResource("3_sgh5l")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -60)
