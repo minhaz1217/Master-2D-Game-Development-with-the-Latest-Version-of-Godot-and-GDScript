@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://dj86b7kj8c2w1"]
+
+[ext_resource type="Texture2D" uid="uid://4mllmwdfhmce" path="res://assets/sprites/Enemies/Enemy_4.png" id="1_072v2"]
+[ext_resource type="Script" uid="uid://cnd7q7dc1kn6a" path="res://resources/units/unit_stats.gd" id="2_hknex"]
+
+[resource]
+script = ExtResource("2_hknex")
+name = "Shooter"
+type = 1
+icon = ExtResource("1_072v2")
+health = 4
+health_increase_per_wave = 2.0
+damage = 3.0
+damage_increase_per_wave = 1.5
+speed = 260
+luck = 0
+block_chance = 3
+gold_drop = 3
+metadata/_custom_type_script = "uid://cnd7q7dc1kn6a"

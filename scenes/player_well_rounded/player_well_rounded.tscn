@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dif20onumbk7d"]
+[gd_scene load_steps=8 format=3 uid="uid://dif20onumbk7d"]
 
 [ext_resource type="PackedScene" uid="uid://b0oa62f6hadl0" path="res://scenes/unit/unit.tscn" id="1_nbq3v"]
 [ext_resource type="Script" uid="uid://dpgf6otwsy2wo" path="res://scenes/player_well_rounded/scripts/player_well_rounded.gd" id="2_sgh5l"]
 [ext_resource type="Resource" uid="uid://ily2pkpehjv4" path="res://resources/units/players/stats_player_well_rounded.tres" id="3_sgh5l"]
 [ext_resource type="Script" uid="uid://cssdid3k8dtp4" path="res://scenes/player_well_rounded/scripts/trail.gd" id="4_8pif2"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="5_bj3ey"]
 
 [sub_resource type="Curve" id="Curve_sgh5l"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -35,6 +36,7 @@ z_index = 1
 
 [node name="Sprite" parent="Visuals" index="2"]
 z_index = 1
+texture = ExtResource("5_bj3ey")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -60)
