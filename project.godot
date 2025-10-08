@@ -57,6 +57,10 @@ dash={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
+2d_physics/layer_3="HitBoxEnemy"
+2d_physics/layer_4="HurtBoxEnemy"
+2d_physics/layer_5="HitBoxPlayer"
+2d_physics/layer_6="HurtBoxPlayer"
 
 [rendering]
 
