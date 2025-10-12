@@ -5,7 +5,7 @@ class_name HealthBar
 @export var fill_color: Color
 
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var label: Label = $Label
+@onready var health_label: Label = $Label
 
 func _ready() -> void:
 	var back_style := progress_bar.get_theme_stylebox("background").duplicate()
@@ -17,4 +17,11 @@ func _ready() -> void:
 	progress_bar.add_theme_stylebox_override("background", back_style)
 	progress_bar.add_theme_stylebox_override("fill", fill_style)
 
-#func update_bar(value: float)
+func update_bar(value: float, health: float)->void:
+	progress_bar.value = value
+	health_label.text = str(health)
+
+
+func _on_health_component_on_health_changed(current: float, max: float) -> void:
+	var value = current / max
+	update_bar(value, current)
