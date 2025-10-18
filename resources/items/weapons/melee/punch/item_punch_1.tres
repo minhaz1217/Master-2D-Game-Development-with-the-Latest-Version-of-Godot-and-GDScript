@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://bt2q6m7u68chb"]
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=7 format=3 uid="uid://bt2q6m7u68chb"]
 
 [ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="1_ftcsy"]
 [ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="1_o6o4d"]
+[ext_resource type="PackedScene" uid="uid://hpwnwtjekmbr" path="res://scenes/weapon_punch/weapon_punch.tscn" id="2_rm85p"]
 [ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="3_k4o1h"]
 [ext_resource type="Resource" uid="uid://dl4cgyivj3yuq" path="res://resources/items/weapons/melee/punch/item_punch_2.tres" id="4_k4o1h"]
 
@@ -16,6 +17,7 @@ metadata/_custom_type_script = "uid://drrgiesukxsg3"
 
 [resource]
 script = ExtResource("1_o6o4d")
+scene = ExtResource("2_rm85p")
 stats = SubResource("Resource_rm85p")
 upgrade_to = ExtResource("4_k4o1h")
 item_name = "Punch 1"
