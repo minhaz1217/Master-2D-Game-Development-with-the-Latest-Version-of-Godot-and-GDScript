@@ -9,6 +9,9 @@ class_name Player
 @onready var dash_cool_down_timer: Timer = $DashCoolDownTimer
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var trail: Trail = %Trail
+@onready var weapon_container: WeaponContainer = $WeaponContainer
+
+var current_weapons: Array[WeaponBase]
 
 var move_dir: Vector2
 var is_dashing := false
@@ -18,6 +21,13 @@ func _ready() -> void:
 	super._ready()
 	dash_timer.wait_time = dash_duration
 	dash_cool_down_timer.wait_time = dash_cooldown
+	
+	add_weapon(preload("uid://bt2q6m7u68chb"))
+	add_weapon(preload("uid://bt2q6m7u68chb"))
+	add_weapon(preload("uid://bt2q6m7u68chb"))
+	add_weapon(preload("uid://bt2q6m7u68chb"))
+	add_weapon(preload("uid://bt2q6m7u68chb"))
+	add_weapon(preload("uid://bt2q6m7u68chb"))
 
 func _process(delta: float) -> void:
 	move_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -37,7 +47,14 @@ func _process(delta: float) -> void:
 	update_animations()
 	update_rotation()
 	
+
+func add_weapon(data:ItemWeapon) -> void:
+	var weapon = data.scene.instantiate() as WeaponBase
+	add_child(weapon)
+	weapon.setup_weapon(data)
+	current_weapons.append(weapon)
 	
+	weapon_container.update_weapon_position(current_weapons)
 
 func update_animations() -> void:
 	if move_dir.length() > 0:
