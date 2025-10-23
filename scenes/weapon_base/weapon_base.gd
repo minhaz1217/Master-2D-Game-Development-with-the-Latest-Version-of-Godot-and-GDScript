@@ -20,6 +20,22 @@ func setup_weapon(data: ItemWeapon) -> void:
 	self.data = data
 	collision.shape.radius = data.stats.max_range
 	
+func get_closest_target() -> Node2D:
+	if targets.size() == 0:
+		return
+	var closest_enemy := targets[0]
+	var closest_distance := global_position.distance_to(closest_enemy.global_position)
+	
+	for i in range(1, targets.size()):
+		var target: Enemy = targets[i]
+		var distance := global_position.distance_to(target.global_position)
+		
+		if distance < closest_distance:
+			closest_enemy = target
+			closest_distance = distance
+	
+	return closest_enemy
+
 func can_use_weapon() -> bool:
 	return cooldown_timer.is_stopped() and closest_target
 
