@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://hpwnwtjekmbr"]
+[gd_scene load_steps=6 format=3 uid="uid://hpwnwtjekmbr"]
 
 [ext_resource type="PackedScene" uid="uid://dr5epmo5ckwhb" path="res://scenes/weapon_base/weapon_base.tscn" id="1_iq4wd"]
 [ext_resource type="Texture2D" uid="uid://l5hst1cf27oo" path="res://assets/sprites/Weapons/Melee/Weapon_Punch.png" id="2_3l71x"]
 [ext_resource type="PackedScene" uid="uid://u24wk0s0d12a" path="res://scenes/hit_box_component/hit_box_component.tscn" id="3_biu7i"]
+[ext_resource type="Script" uid="uid://bwjxkv52usp30" path="res://scenes/weapon_punch/scripts/weapon_behaviour.gd" id="4_djrfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djrfd"]
 size = Vector2(56, 48)
@@ -23,3 +24,6 @@ z_index = 1
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_djrfd")
 debug_color = Color(0.9684424, 0, 0.4709128, 0.41960785)
+
+[node name="WeaponBehaviour" parent="." index="3"]
+script = ExtResource("4_djrfd")
