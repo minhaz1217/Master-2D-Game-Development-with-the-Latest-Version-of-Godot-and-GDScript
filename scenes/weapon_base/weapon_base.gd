@@ -4,6 +4,7 @@ class_name WeaponBase
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision : CollisionShape2D = %CollisionShape2D
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var weapon_behaviour: WeaponBehavior = $WeaponBehaviour
 
 var data: ItemWeapon
 var is_attacking := false
@@ -22,6 +23,8 @@ func _process(delta: float) -> void:
 		else:
 			closest_target = null
 	rotate_to_target()
+	if(can_use_weapon()):
+		use_weapon()
 
 
 func setup_weapon(data: ItemWeapon) -> void:
@@ -30,6 +33,10 @@ func setup_weapon(data: ItemWeapon) -> void:
 
 func use_weapon() -> void:
 	calculate_spread()
+	weapon_behaviour.execute_attack()
+	cooldown_timer.wait_time = data.stats.cooldown
+	cooldown_timer.start()
+	
 
 func rotate_to_target() -> void:
 	if is_attacking:
