@@ -16,6 +16,8 @@ texture = ExtResource("2_3l71x")
 
 [node name="HitBoxComponent" parent="Sprite2D" index="0" instance=ExtResource("3_biu7i")]
 scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 8
 monitoring = false
 monitorable = false
 
