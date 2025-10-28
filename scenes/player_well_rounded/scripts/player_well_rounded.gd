@@ -23,11 +23,11 @@ func _ready() -> void:
 	dash_cool_down_timer.wait_time = dash_cooldown
 	
 	add_weapon(preload("uid://bt2q6m7u68chb"))
-	add_weapon(preload("uid://bt2q6m7u68chb"))
-	add_weapon(preload("uid://bt2q6m7u68chb"))
-	add_weapon(preload("uid://bt2q6m7u68chb"))
-	add_weapon(preload("uid://bt2q6m7u68chb"))
-	add_weapon(preload("uid://bt2q6m7u68chb"))
+	#add_weapon(preload("uid://bt2q6m7u68chb"))
+	#add_weapon(preload("uid://bt2q6m7u68chb"))
+	#add_weapon(preload("uid://bt2q6m7u68chb"))
+	#add_weapon(preload("uid://bt2q6m7u68chb"))
+	#add_weapon(preload("uid://bt2q6m7u68chb"))
 
 func _process(delta: float) -> void:
 	move_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
