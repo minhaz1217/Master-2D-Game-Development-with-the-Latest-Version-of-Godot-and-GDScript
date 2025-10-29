@@ -12,7 +12,7 @@ damage = 4.0
 accuracy = 1.0
 cooldown = 2
 max_range = 180.0
-knockback = 3.0
+knockback = 1.0
 metadata/_custom_type_script = "uid://drrgiesukxsg3"
 
 [resource]
