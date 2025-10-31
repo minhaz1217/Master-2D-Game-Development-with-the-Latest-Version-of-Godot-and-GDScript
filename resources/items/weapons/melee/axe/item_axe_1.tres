@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://blsykt8gfdn6f"]
+
+[ext_resource type="Texture2D" uid="uid://d8op56q0uwh1" path="res://assets/sprites/Weapons/Icons/weapon_axe_icon.png" id="1_wtm7i"]
+[ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="1_yy6db"]
+[ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="3_i86bm"]
+
+[sub_resource type="Resource" id="Resource_wusse"]
+script = ExtResource("3_i86bm")
+metadata/_custom_type_script = "uid://drrgiesukxsg3"
+
+[resource]
+script = ExtResource("1_yy6db")
+stats = SubResource("Resource_wusse")
+item_icon = ExtResource("1_wtm7i")
+metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"
