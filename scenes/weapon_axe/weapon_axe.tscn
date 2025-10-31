@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://n4vuntvu058p"]
+
+[ext_resource type="PackedScene" uid="uid://dr5epmo5ckwhb" path="res://scenes/weapon_base/weapon_base.tscn" id="1_qa7kw"]
+[ext_resource type="Texture2D" uid="uid://bbw1axlomamnl" path="res://assets/sprites/Weapons/Melee/Weapon_axe.png" id="2_it8yw"]
+[ext_resource type="Script" uid="uid://c2cbangyb2xhj" path="res://scenes/hit_box_component/hit_box_component.gd" id="3_c7sqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pkfm"]
+size = Vector2(140, 72)
+
+[node name="WeaponAxe" instance=ExtResource("1_qa7kw")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_it8yw")
+
+[node name="HitBoxComponent" type="Area2D" parent="Sprite2D" index="0"]
+script = ExtResource("3_c7sqp")
+metadata/_custom_type_script = "uid://c2cbangyb2xhj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBoxComponent" index="0"]
+shape = SubResource("RectangleShape2D_5pkfm")
