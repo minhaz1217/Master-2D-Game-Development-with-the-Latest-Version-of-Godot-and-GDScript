@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://qlaoxi3gstek"]
+
+[ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="1_khnh1"]
+
+[resource]
+script = ExtResource("1_khnh1")
+recoil_duration = 0.281
+metadata/_custom_type_script = "uid://drrgiesukxsg3"

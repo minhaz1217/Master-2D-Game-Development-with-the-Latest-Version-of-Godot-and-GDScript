@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemWeapon" load_steps=7 format=3 uid="uid://dl4cgyivj3yuq"]
+[gd_resource type="Resource" script_class="ItemWeapon" format=3 uid="uid://dl4cgyivj3yuq"]
 
 [ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="1_wrw2j"]
 [ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="2_amj6w"]

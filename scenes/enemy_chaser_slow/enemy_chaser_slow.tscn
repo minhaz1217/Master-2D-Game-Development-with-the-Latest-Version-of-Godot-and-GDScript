@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://k5kwar7wufnj"]
+[gd_scene format=3 uid="uid://k5kwar7wufnj"]
 
 [ext_resource type="PackedScene" uid="uid://b0oa62f6hadl0" path="res://scenes/unit/unit.tscn" id="1_nux14"]
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://assets/sprites/Enemies/Enemy_1.png" id="2_8f4cj"]
@@ -18,7 +18,7 @@ radius = 38.013157
 [sub_resource type="CircleShape2D" id="CircleShape2D_kjxto"]
 radius = 37.12142
 
-[node name="EnemyChaserSlow" instance=ExtResource("1_nux14")]
+[node name="EnemyChaserSlow" unique_id=1548044538 instance=ExtResource("1_nux14")]
 collision_layer = 2
 script = ExtResource("2_dqqec")
 flock_push = 20.0
@@ -32,11 +32,11 @@ position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_dqqec")
 debug_color = Color(0.956392, 1.2513996e-06, 0.54075235, 0.41960785)
 
-[node name="VisionArea" type="Area2D" parent="." index="3"]
+[node name="VisionArea" type="Area2D" parent="." index="3" unique_id=991223040]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0" unique_id=1814903286]
 position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_nux14")
 
@@ -44,16 +44,16 @@ shape = SubResource("CircleShape2D_nux14")
 collision_layer = 8
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0" unique_id=1223949425]
 position = Vector2(1, -31)
 shape = SubResource("CircleShape2D_wnqxd")
 debug_color = Color(0.9623316, 9.62615e-08, 0.50798833, 0.41960785)
 
-[node name="HitBoxComponent" parent="." index="5" instance=ExtResource("5_wnqxd")]
+[node name="HitBoxComponent" parent="." index="5" unique_id=1613605966 instance=ExtResource("5_wnqxd")]
 collision_layer = 4
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0" unique_id=309091261]
 position = Vector2(1, -31)
 shape = SubResource("CircleShape2D_kjxto")
 debug_color = Color(0, 0.649354, 0.10258024, 0.41960785)
@@ -62,7 +62,7 @@ debug_color = Color(0, 0.649354, 0.10258024, 0.41960785)
 back_color = Color(0.015686275, 0.05490196, 0.16862746, 1)
 fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)
 
-[node name="KnockbackTimer" type="Timer" parent="." index="9"]
+[node name="KnockbackTimer" type="Timer" parent="." index="9" unique_id=1100598690]
 wait_time = 0.4
 one_shot = true
 

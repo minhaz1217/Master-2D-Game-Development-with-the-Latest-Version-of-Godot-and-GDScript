@@ -1,8 +1,8 @@
 extends Node2D
 class_name WeaponBase
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var collision : CollisionShape2D = %CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var collision: CollisionShape2D = %CollisionShape2D
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var weapon_behaviour: WeaponBehavior = $WeaponBehaviour
 
@@ -14,7 +14,7 @@ var closest_target: Enemy
 var weapon_spread: float
 
 func _ready() -> void:
-	atk_start_pos = sprite_2d.position
+	atk_start_pos = sprite.position
 
 func _process(delta: float) -> void:
 	if not is_attacking:
@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 		else:
 			closest_target = null
 	rotate_to_target()
-	if(can_use_weapon()):
+	update_visuals()
+	if (can_use_weapon()):
 		use_weapon()
 
 
@@ -49,22 +50,29 @@ func get_custom_rotation_to_target() -> float:
 		return rotation
 	
 	var target_rotation = global_position.direction_to(closest_target.global_position).angle()
-	return target_rotation + weapon_spread 
+	return target_rotation + weapon_spread
 
 func get_rotattion_to_target() -> float:
 	if targets.size() == 0:
 		return get_idle_rotation()
 	var target_rotation = global_position.direction_to(closest_target.global_position).angle()
-	return target_rotation 
+	return target_rotation
 
 func get_idle_rotation() -> float:
 	if Global.player.is_facing_right():
 		return 0
-	else: 
+	else:
 		return PI
+		
+func update_visuals() -> void:
+	if (abs(rotation) > PI / 2):
+		sprite.scale.y = -0.5
+	else:
+		sprite.scale.y = 0.5
 
-func calculate_spread() ->void:
-	weapon_spread += randf_range(-1+ data.stats.accuracy, 1 - data.stats.accuracy)
+
+func calculate_spread() -> void:
+	weapon_spread += randf_range(-1 + data.stats.accuracy, 1 - data.stats.accuracy)
 	rotation += weapon_spread
 
 func update_closest_target() -> void:
