@@ -4,12 +4,15 @@
 [ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="1_w21nh"]
 [ext_resource type="PackedScene" uid="uid://m3m23kqwm58m" path="res://scenes/weapon/ranged/weapon_pistol.tscn" id="2_jdnii"]
 [ext_resource type="Resource" uid="uid://qlaoxi3gstek" path="res://resources/items/weapons/range/pistol/stats_pistol_1.tres" id="4_ae30x"]
+[ext_resource type="Resource" uid="uid://cwvtwe5c6msee" path="res://resources/items/weapons/range/pistol/item_pistol_2.tres" id="5_jdnii"]
 
 [resource]
 script = ExtResource("1_w21nh")
 scene = ExtResource("2_jdnii")
 stats = ExtResource("4_ae30x")
+upgrade_to = ExtResource("5_jdnii")
 item_name = "Pistol 1"
 item_icon = ExtResource("1_kib4b")
-item_cost = 15
+item_tier = 1
+item_cost = 30
 metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"

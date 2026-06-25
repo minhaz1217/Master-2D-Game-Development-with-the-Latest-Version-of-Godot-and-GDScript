@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://m3m23kqwm58m"]
+
+[ext_resource type="PackedScene" uid="uid://dr5epmo5ckwhb" path="res://scenes/weapon_base/weapon_base.tscn" id="1_tuiap"]
+[ext_resource type="Texture2D" uid="uid://bbsd0o1wllf0p" path="res://assets/sprites/Weapons/Range/WeaponPistol.png" id="2_36xi2"]
+[ext_resource type="Script" uid="uid://bpu7u1iye1pj4" path="res://scenes/weapon/ranged/range_behavior.gd" id="3_yrmkn"]
+
+[node name="WeaponPistol" unique_id=750014068 instance=ExtResource("1_tuiap")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=869217333]
+position = Vector2(20, -6)
+texture = ExtResource("2_36xi2")
+
+[node name="Muzzle" type="Marker2D" parent="Sprite2D" index="0" unique_id=2039029581]
+unique_name_in_owner = true
+position = Vector2(78, -28)
+
+[node name="CooldownTimer" parent="." index="2" unique_id=1453591375]
+one_shot = true
+
+[node name="WeaponBehaviour" parent="." index="3" unique_id=1562209900 node_paths=PackedStringArray("weapon")]
+script = ExtResource("3_yrmkn")
+weapon = NodePath("..")
