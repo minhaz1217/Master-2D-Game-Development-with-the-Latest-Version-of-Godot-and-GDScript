@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7ewhmu16jlfh"]
+
+[ext_resource type="PackedScene" uid="uid://ddedaig1v4bnm" path="res://scenes/weapon/projectile/projectile_pistol.tscn" id="1_runnn"]
+[ext_resource type="Texture2D" uid="uid://3c2kwaw7powj" path="res://assets/sprites/Projectiles/Projectile_3.png" id="2_ns48e"]
+
+[node name="ProjectileLaser" unique_id=196243225 instance=ExtResource("1_runnn")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1769443893]
+texture = ExtResource("2_ns48e")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=1850076750]
+rect = Rect2(-14, -14, 28, 28)
