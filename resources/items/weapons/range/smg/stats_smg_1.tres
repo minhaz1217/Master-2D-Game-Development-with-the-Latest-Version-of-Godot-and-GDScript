@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://76avgsxfkdvl"]
+
+[ext_resource type="PackedScene" uid="uid://d1ghw85lukvef" path="res://scenes/weapon/projectile/projectile_shotgun.tscn" id="1_s3a7b"]
+[ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="2_pc5tc"]
+
+[resource]
+script = ExtResource("2_pc5tc")
+damage = 5.0
+accuracy = 0.85
+crit_damage = 2.0
+max_range = 350.0
+knockback = 1.3
+projectile_scene = ExtResource("1_s3a7b")
+projectile_speed = 1700.0
+metadata/_custom_type_script = "uid://drrgiesukxsg3"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemWeapon" format=3 uid="uid://dphydcd8kc4bb"]
+
+[ext_resource type="Texture2D" uid="uid://5qsdr8kgiqe3" path="res://assets/sprites/Weapons/Icons/weapon_smg_icon.png" id="1_hpiab"]
+[ext_resource type="PackedScene" uid="uid://85ownnyrfxfs" path="res://scenes/weapon/ranged/weapon_smg.tscn" id="2_rh7hr"]
+[ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="3_ou2te"]
+[ext_resource type="Resource" uid="uid://cp8r37xypgshv" path="res://resources/items/weapons/range/smg/stats_smg_2.tres" id="4_ou2te"]
+[ext_resource type="Resource" uid="uid://j5br5wp1sm3o" path="res://resources/items/weapons/range/smg/item_smg_3.tres" id="5_uchkb"]
+
+[resource]
+script = ExtResource("3_ou2te")
+type = 1
+scene = ExtResource("2_rh7hr")
+stats = ExtResource("4_ou2te")
+upgrade_to = ExtResource("5_uchkb")
+item_name = "SMG  II"
+item_icon = ExtResource("1_hpiab")
+item_tier = 1
+item_cost = 30
+metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"
