@@ -9,7 +9,7 @@ size = Vector2(140, 72)
 
 [node name="WeaponAxe" unique_id=660617976 instance=ExtResource("1_qa7kw")]
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="0" unique_id=869217333]
 texture = ExtResource("2_it8yw")
 
 [node name="HitBoxComponent" type="Area2D" parent="Sprite2D" index="0" unique_id=259549721]

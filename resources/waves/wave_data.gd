@@ -17,7 +17,7 @@ enum SpawnType{
 @export var max_spawn_time := 1.0
 
 
-func get_random_unit() -> PackedScene:
+func get_random_unit_scene() -> PackedScene:
 	if units.is_empty():
 		return null
 	var enemies : Array[PackedScene]
@@ -30,4 +30,7 @@ func get_random_unit() -> PackedScene:
 	var rng := RandomNumberGenerator.new()
 	var random_unit = enemies[rng.rand_weighted(weights)]
 	return random_unit
+	
+func is_valid_index(current_index : int) -> bool:
+	return current_index >= from && current_index <= to
 	

@@ -14,7 +14,7 @@ enum UpgradeTier{
 }
 
 var player: Player
-
+var game_paused := false
 
 
 func get_change_success(chance: float) -> bool:
