@@ -88,6 +88,10 @@ func can_dash() -> bool:
 func is_facing_right() -> bool:
 	return visuals.scale.x == -0.5
 
+func update_player_new_wave() -> void:
+	stats.health += stats.health_increase_per_wave
+	health_component.setup(stats)
+
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
 	visuals.modulate.a = 1

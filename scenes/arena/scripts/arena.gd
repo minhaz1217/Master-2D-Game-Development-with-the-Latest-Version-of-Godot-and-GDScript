@@ -6,9 +6,11 @@ class_name Arena
 @export var block_color: Color
 @export var cricical_color: Color
 @export var hp_color: Color
+
 @onready var spawner: Spawner = $Spawner
 @onready var wave_index_label: Label = $GameUi/WaveIndexLabel
 @onready var wave_time_label: Label = $GameUi/WaveTimeLabel
+@onready var upgrade_panel: UpgradePanel = %UpgradePanel
 
 
 
@@ -16,6 +18,8 @@ func _ready() -> void:
 	Global.player = player
 	Global.on_create_block_text.connect(_on_create_block_text)
 	Global.on_create_damage_text.connect(_on_create_damage_text)
+	Global.on_upgrade_selected.connect(_on_upgrade_selected)
+	spawner.start_wave()
 
 func _process(delta: float) -> void:
 	if Global.game_paused: return
@@ -34,6 +38,19 @@ func create_floating_text(unit: Node2D) -> FloatingText:
 	return instance
 	
 	
+func show_upgrade() -> void:
+	upgrade_panel.show()
+	
+func start_new_wave()-> void:
+	Global.game_paused = false
+	Global.player.update_player_new_wave()
+	spawner.wave_index += 1
+	spawner.start_wave()
+	
+func _on_upgrade_selected()->void:
+	upgrade_panel.hide()
+	start_new_wave()
+	
 func _on_create_block_text(unit: Node2D) -> void:
 	var text := create_floating_text(unit)
 	text.setup("Blocked", block_color)
@@ -44,4 +61,8 @@ func _on_create_damage_text(unit: Node2D, hitbox: HitBoxComponent) -> void:
 	text.setup(str(hitbox.damage), color)
 	
 
+func _on_spawner_on_wave_completed() -> void:
+	if not Global.player: return
 	
+	await get_tree().create_timer(1.0).timeout
+	show_upgrade()

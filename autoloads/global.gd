@@ -2,6 +2,7 @@ extends Node
 
 signal on_create_block_text(unit: Node2D)
 signal on_create_damage_text(unit: Node2D, hitbox: HitBoxComponent)
+signal on_upgrade_selected()
 
 const FLASH_MATERIAL = preload("uid://coi4nu8ohpgeo")
 const FLOATING_TEXT = preload("uid://c1sti5gh5yk0y")
