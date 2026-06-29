@@ -27,7 +27,10 @@ enum UpgradeTier{
 
 var player: Player
 var game_paused := false
+var coins: int
 
+func get_harvesting_coins() -> void:
+	coins += player.stats.harvesting
 
 func get_change_success(chance: float) -> bool:
 	var random := randf_range(0, 1.0)
