@@ -3,9 +3,20 @@ extends Node
 signal on_create_block_text(unit: Node2D)
 signal on_create_damage_text(unit: Node2D, hitbox: HitBoxComponent)
 signal on_upgrade_selected()
+signal on_create_heal_text(unit: Node2D, heal: float)
 
 const FLASH_MATERIAL = preload("uid://coi4nu8ohpgeo")
 const FLOATING_TEXT = preload("uid://c1sti5gh5yk0y")
+
+const UPGRADE_PROBABILITY_CONFIG = {
+	"rare" : { "start_wave": 2, "base_multi": 0.06 },
+	"epic" : { "start_wave": 4, "base_multi": 0.02 },
+	"legendary" : { "start_wave": 7, "base_multi": 0.0023 }
+}
+const COMMON_STYLES = preload("uid://qyev2vjcdknr")
+const EPIC_STYLES = preload("uid://dr2xw2hayf05t")
+const LEGENDARY_STYLES = preload("uid://cguomxq65meai")
+const RARE_STYLES = preload("uid://dbhd8ppk17who")
 
 enum UpgradeTier{
 	COMMON,
@@ -23,3 +34,93 @@ func get_change_success(chance: float) -> bool:
 	if(random < chance):
 		return true
 	return false
+
+func calculate_tier_probability(current_wave: int, config: Dictionary) -> Array[float]:
+	var common_chance := 0.0
+	var rare_chance := 0.0
+	var epic_chance := 0.0
+	var legendary_chance := 0.0
+	
+	if current_wave >= config.rare.start_wave:
+		rare_chance = min(1.0, (current_wave - config.rare.start_wave + 1) * config.rare.base_multi)
+		
+	if current_wave >= config.epic.start_wave:
+		epic_chance = min(1.0, (current_wave - config.epic.start_wave + 1) * config.epic.base_multi)
+		
+	if current_wave >= config.legendary.start_wave:
+		legendary_chance = min(1.0, (current_wave - config.legendary.start_wave + 1) * config.legendary.base_multi)
+	
+	var luck_factor: float = (1.0 + (Global.player.stats.luck / 100.0))
+	rare_chance *= luck_factor
+	epic_chance *= luck_factor
+	legendary_chance *= luck_factor
+	
+	# normalize probabilities
+	var total_non_common_chances := rare_chance + epic_chance + legendary_chance
+	if total_non_common_chances > 1.0:
+		var scale_down := 1.0 / total_non_common_chances
+		rare_chance *= scale_down
+		epic_chance *= scale_down
+		legendary_chance *= scale_down
+		total_non_common_chances = 1.0
+	
+	common_chance = 1.0 - total_non_common_chances
+	return [ 
+		max(0.0, common_chance),
+		max(0.0, rare_chance),
+		max(0.0, epic_chance),
+		max(0.0, legendary_chance),
+	]
+
+func select_items_for_offer(item_pool: Array, current_wave: int, config: Dictionary) -> Array:
+	
+	var tier_chances := calculate_tier_probability(current_wave, config)
+	
+	var common_limit = tier_chances[0]
+	var epic_limit = tier_chances[1]
+	var rare_limit = tier_chances[2]
+	var legendary_limit = tier_chances[3]
+	
+	var offered_items : Array = []
+	while(offered_items.size() < 4): 
+		var roll := randf()
+		var chosen_tier_index := 0
+		if(roll < legendary_limit):
+			chosen_tier_index = 3
+		elif(roll < rare_limit):
+			chosen_tier_index = 2
+		elif(roll < epic_limit):
+			chosen_tier_index = 1
+		else: 
+			chosen_tier_index = 0
+			
+		var potential_items: Array = []
+		var current_search_tier_index := chosen_tier_index
+		
+		while potential_items.is_empty() and current_search_tier_index >= 0:
+			potential_items = item_pool.filter( func(item:ItemBase): return item.item_tier == current_search_tier_index )
+			if potential_items.is_empty():
+				current_search_tier_index -= 1
+			else:
+				break
+		
+		if not potential_items.is_empty():
+			var selected_item = potential_items.pick_random()
+			
+			if not offered_items.has(selected_item):
+				offered_items.append(selected_item)
+				
+	return offered_items
+
+func get_tier_styles(tier: UpgradeTier) -> StyleBoxFlat:
+	match tier:
+		UpgradeTier.COMMON:
+			return COMMON_STYLES
+		UpgradeTier.RARE:
+			return RARE_STYLES
+		UpgradeTier.EPIC:
+			return EPIC_STYLES
+		UpgradeTier.LEGENDARY:
+			return LEGENDARY_STYLES
+		_:
+			return COMMON_STYLES

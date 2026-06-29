@@ -19,6 +19,7 @@ func _ready() -> void:
 	Global.on_create_block_text.connect(_on_create_block_text)
 	Global.on_create_damage_text.connect(_on_create_damage_text)
 	Global.on_upgrade_selected.connect(_on_upgrade_selected)
+	Global.on_create_heal_text.connect(_on_create_heal_text)
 	spawner.start_wave()
 
 func _process(delta: float) -> void:
@@ -39,6 +40,7 @@ func create_floating_text(unit: Node2D) -> FloatingText:
 	
 	
 func show_upgrade() -> void:
+	upgrade_panel.load_upgrades(spawner.wave_index)
 	upgrade_panel.show()
 	
 func start_new_wave()-> void:
@@ -59,6 +61,10 @@ func _on_create_damage_text(unit: Node2D, hitbox: HitBoxComponent) -> void:
 	var text := create_floating_text(unit)
 	var color := cricical_color if hitbox.critical else normal_color
 	text.setup(str(hitbox.damage), color)
+	
+func _on_create_heal_text(unit: Node2D, heal: float) -> void:
+	var text := create_floating_text(unit)
+	text.setup(str("+ %s" % heal), hp_color)
 	
 
 func _on_spawner_on_wave_completed() -> void:
