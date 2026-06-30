@@ -1,6 +1,8 @@
 extends Panel
 class_name ShopPanel
 
+signal on_shop_next_wave
+
 const SHOP_CARD_SCENE = preload("uid://csmrkxii0a74i")
 
 @export var shop_items: Array[ItemBase]
@@ -24,3 +26,7 @@ func load_shop(current_wave: int) -> void:
 		items_container.add_child(card_instance)
 		card_instance.shop_item = shop_item
 	
+
+
+func _on_new_wave_button_pressed() -> void:
+	on_shop_next_wave.emit()

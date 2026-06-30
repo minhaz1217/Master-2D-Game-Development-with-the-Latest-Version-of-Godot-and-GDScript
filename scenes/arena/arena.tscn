@@ -40,6 +40,7 @@ texture = ExtResource("2_5tue2")
 script = ExtResource("4_aj7ud")
 
 [node name="EnemyShooter" parent="." unique_id=223726099 instance=ExtResource("6_jx0ua")]
+visible = false
 position = Vector2(-346, -12)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=692700497]
@@ -86,7 +87,9 @@ visible = false
 
 [node name="ShopPanel" parent="GameUi" unique_id=397756928 instance=ExtResource("11_xgbxb")]
 unique_name_in_owner = true
+visible = false
 
 [connection signal="on_wave_completed" from="Spawner" to="." method="_on_spawner_on_wave_completed"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
+[connection signal="on_shop_next_wave" from="GameUi/ShopPanel" to="." method="_on_shop_panel_on_shop_next_wave"]

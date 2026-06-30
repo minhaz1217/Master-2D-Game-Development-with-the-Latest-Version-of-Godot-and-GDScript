@@ -22,7 +22,6 @@ func _ready() -> void:
 	Global.on_upgrade_selected.connect(_on_upgrade_selected)
 	Global.on_create_heal_text.connect(_on_create_heal_text)
 	spawner.start_wave()
-	shop_panel.load_shop(8)
 
 func _process(delta: float) -> void:
 	if Global.game_paused: return
@@ -53,7 +52,8 @@ func start_new_wave()-> void:
 	
 func _on_upgrade_selected()->void:
 	upgrade_panel.hide()
-	start_new_wave()
+	shop_panel.load_shop(spawner.wave_index)
+	shop_panel.show()
 	
 func _on_create_block_text(unit: Node2D) -> void:
 	var text := create_floating_text(unit)
@@ -74,3 +74,8 @@ func _on_spawner_on_wave_completed() -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	show_upgrade()
+
+
+func _on_shop_panel_on_shop_next_wave() -> void:
+	shop_panel.hide()
+	start_new_wave()
