@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://csmrkxii0a74i"]
+
+[ext_resource type="Script" uid="uid://dmth1jvsxfqh7" path="res://scenes/ui/shop_card/shop_card.gd" id="1_32l3b"]
+[ext_resource type="StyleBox" uid="uid://qyev2vjcdknr" path="res://styles/common_styles.tres" id="1_16550"]
+
+[node name="ShopCard" type="Panel" unique_id=1239643879]
+custom_minimum_size = Vector2(320, 400)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = ExtResource("1_16550")
+script = ExtResource("1_32l3b")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=33548752]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
