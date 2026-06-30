@@ -13,6 +13,9 @@
 [ext_resource type="Resource" uid="uid://dskajggc54jrk" path="res://resources/items/upgrades/data/upgrade_luck_1.tres" id="9_lndip"]
 [ext_resource type="Resource" uid="uid://chd5h3o3vep5l" path="res://resources/items/upgrades/data/upgrade_speed_5.tres" id="10_23ymm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkkr"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_agl2i"]
 font_size = 64
 
@@ -22,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chkkr")
 script = ExtResource("1_l8hix")
 upgrade_list = Array[ExtResource("2_aghkh")]([ExtResource("3_evmld"), ExtResource("4_t2jfx"), ExtResource("5_cehub"), ExtResource("6_078e8"), ExtResource("7_jevkw"), ExtResource("8_h4hr2"), ExtResource("9_lndip"), ExtResource("10_23ymm")])
 

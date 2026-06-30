@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bst7pbtwe4mop" path="res://resources/waves/wave_data.gd" id="8_6w4xk"]
 [ext_resource type="Resource" uid="uid://cy0wv0o4fyk46" path="res://resources/waves/data/wave_1_to_5.tres" id="9_2ml6w"]
 [ext_resource type="PackedScene" uid="uid://d88phqluv8gk" path="res://scenes/ui/upgrade_panel/upgrade_panel.tscn" id="10_2ml6w"]
+[ext_resource type="PackedScene" uid="uid://ck8hfiuq31k2l" path="res://scenes/ui/shop_panel/shop_panel.tscn" id="11_xgbxb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w4xk"]
 font_size = 64
@@ -82,6 +83,9 @@ horizontal_alignment = 1
 [node name="UpgradePanel" parent="GameUi" unique_id=588855624 instance=ExtResource("10_2ml6w")]
 unique_name_in_owner = true
 visible = false
+
+[node name="ShopPanel" parent="GameUi" unique_id=397756928 instance=ExtResource("11_xgbxb")]
+unique_name_in_owner = true
 
 [connection signal="on_wave_completed" from="Spawner" to="." method="_on_spawner_on_wave_completed"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]

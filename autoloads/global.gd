@@ -13,6 +13,12 @@ const UPGRADE_PROBABILITY_CONFIG = {
 	"epic" : { "start_wave": 4, "base_multi": 0.02 },
 	"legendary" : { "start_wave": 7, "base_multi": 0.0023 }
 }
+
+const SHOP_PROBABILITY_CONFIG = {
+	"rare" : { "start_wave": 2, "base_multi": 0.10 },
+	"epic" : { "start_wave": 4, "base_multi": 0.06 },
+	"legendary" : { "start_wave": 7, "base_multi": 0.01 }
+}
 const COMMON_STYLES = preload("uid://qyev2vjcdknr")
 const EPIC_STYLES = preload("uid://dr2xw2hayf05t")
 const LEGENDARY_STYLES = preload("uid://cguomxq65meai")

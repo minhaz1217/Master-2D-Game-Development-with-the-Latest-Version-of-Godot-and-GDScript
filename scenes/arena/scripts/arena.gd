@@ -11,6 +11,7 @@ class_name Arena
 @onready var wave_index_label: Label = $GameUi/WaveIndexLabel
 @onready var wave_time_label: Label = $GameUi/WaveTimeLabel
 @onready var upgrade_panel: UpgradePanel = %UpgradePanel
+@onready var shop_panel: ShopPanel = %ShopPanel
 
 
 
@@ -21,6 +22,7 @@ func _ready() -> void:
 	Global.on_upgrade_selected.connect(_on_upgrade_selected)
 	Global.on_create_heal_text.connect(_on_create_heal_text)
 	spawner.start_wave()
+	shop_panel.load_shop(8)
 
 func _process(delta: float) -> void:
 	if Global.game_paused: return

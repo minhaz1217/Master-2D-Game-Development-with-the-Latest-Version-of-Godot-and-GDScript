@@ -1,0 +1,292 @@
+[gd_scene format=3 uid="uid://ck8hfiuq31k2l"]
+
+[ext_resource type="Script" uid="uid://docled11bfwhl" path="res://scenes/ui/shop_panel/shop_panel.gd" id="1_chkkr"]
+[ext_resource type="Script" uid="uid://b4nfc1us3wfgc" path="res://resources/items/item_base.gd" id="2_d06j1"]
+[ext_resource type="PackedScene" uid="uid://csmrkxii0a74i" path="res://scenes/ui/shop_card/shop_card.tscn" id="2_vr486"]
+[ext_resource type="Resource" uid="uid://blsykt8gfdn6f" path="res://resources/items/weapons/melee/axe/item_axe_1.tres" id="3_lk801"]
+[ext_resource type="PackedScene" uid="uid://b6bse8wisg38j" path="res://scenes/ui/stats_container/stats_container.tscn" id="3_whl1y"]
+[ext_resource type="Resource" uid="uid://bt2q6m7u68chb" path="res://resources/items/weapons/melee/punch/item_punch_1.tres" id="4_8g7ko"]
+[ext_resource type="StyleBox" uid="uid://qyev2vjcdknr" path="res://styles/common_styles.tres" id="4_o7w7v"]
+[ext_resource type="Resource" uid="uid://dl4cgyivj3yuq" path="res://resources/items/weapons/melee/punch/item_punch_2.tres" id="5_5uj72"]
+[ext_resource type="Resource" uid="uid://cjr7k0psdstrs" path="res://resources/items/weapons/melee/punch/item_punch_3.tres" id="6_21wy5"]
+[ext_resource type="Resource" uid="uid://4ctbgdwm7x4r" path="res://resources/items/weapons/melee/punch/item_punch_4.tres" id="7_jqy7g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkkr"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6of6o"]
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6of6o"]
+bg_color = Color(0.23529412, 0.6039216, 0.23137255, 0.6)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whl1y"]
+bg_color = Color(0.18431373, 0.4392157, 0.43529412, 0.6)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7w7v"]
+bg_color = Color(0.8980392, 0.24313726, 0.3137255, 0.6)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="ShopPanel" type="Panel" unique_id=397756928]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chkkr")
+script = ExtResource("1_chkkr")
+shop_items = Array[ExtResource("2_d06j1")]([ExtResource("3_lk801"), ExtResource("4_8g7ko"), ExtResource("5_5uj72"), ExtResource("6_21wy5"), ExtResource("7_jqy7g")])
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2066357104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer" unique_id=116529748]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/Control" unique_id=695651037]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 15.0
+offset_right = 90.0
+offset_bottom = 92.333336
+grow_horizontal = 2
+text = "Shop"
+label_settings = SubResource("LabelSettings_6of6o")
+
+[node name="ItemsContainer" type="HBoxContainer" parent="MarginContainer/Control" unique_id=1014235251]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1328, 400)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 178.0
+offset_right = 1348.0
+offset_bottom = 578.0
+theme_override_constants/separation = 16
+
+[node name="ShopCard" parent="MarginContainer/Control/ItemsContainer" unique_id=1239643879 instance=ExtResource("2_vr486")]
+layout_mode = 2
+
+[node name="ShopCard2" parent="MarginContainer/Control/ItemsContainer" unique_id=349465101 instance=ExtResource("2_vr486")]
+layout_mode = 2
+
+[node name="ShopCard3" parent="MarginContainer/Control/ItemsContainer" unique_id=1893028796 instance=ExtResource("2_vr486")]
+layout_mode = 2
+
+[node name="ShopCard4" parent="MarginContainer/Control/ItemsContainer" unique_id=1439605327 instance=ExtResource("2_vr486")]
+layout_mode = 2
+
+[node name="StatsContainer" parent="MarginContainer/Control" unique_id=1652091007 instance=ExtResource("3_whl1y")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -362.0
+offset_right = -60.0
+offset_bottom = 188.0
+grow_horizontal = 0
+
+[node name="Passives" type="VBoxContainer" parent="MarginContainer/Control" unique_id=1935081050]
+custom_minimum_size = Vector2(752, 250)
+layout_mode = 0
+offset_left = 105.0
+offset_top = 768.0
+offset_right = 857.0
+offset_bottom = 1018.0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Passives" unique_id=747627296]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Items"
+horizontal_alignment = 1
+
+[node name="PassivesContainer" type="GridContainer" parent="MarginContainer/Control/Passives" unique_id=576520778]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 8
+
+[node name="ItemCard" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=855567116]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard2" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=860582175]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard3" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=1863143154]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard4" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=983025167]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard5" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=47819701]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard6" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=246404334]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard7" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=110354196]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard8" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=1109321281]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard9" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=1521134904]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard10" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=187717161]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard11" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=2142648837]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard12" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=641317161]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard13" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=1026002478]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard14" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=1070605080]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard15" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=814778186]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard16" type="Button" parent="MarginContainer/Control/Passives/PassivesContainer" unique_id=1384962062]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="Weapons" type="VBoxContainer" parent="MarginContainer/Control" unique_id=303335138]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 768.0
+offset_right = 1382.0
+offset_bottom = 1018.0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Weapons" unique_id=355211251]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Weapons"
+horizontal_alignment = 1
+
+[node name="WeaponsContainer" type="GridContainer" parent="MarginContainer/Control/Weapons" unique_id=1072372524]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="ItemCard" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=833546341]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard2" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=1538781488]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard3" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=218563995]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard4" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=395715195]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard5" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=251238955]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="ItemCard6" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=1267126546]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_o7w7v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control" unique_id=336590961]
+custom_minimum_size = Vector2(350, 300)
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 740.0
+offset_right = 1790.0
+offset_bottom = 1040.0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="NewWaveButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=971937763]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_6of6o")
+text = "Next Wave"
+
+[node name="CombineButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=523225214]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_whl1y")
+text = "Combine"
+
+[node name="SellButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=1847964589]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o7w7v")
+text = "Sell"
