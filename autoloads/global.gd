@@ -4,10 +4,16 @@ signal on_create_block_text(unit: Node2D)
 signal on_create_damage_text(unit: Node2D, hitbox: HitBoxComponent)
 signal on_upgrade_selected()
 signal on_create_heal_text(unit: Node2D, heal: float)
+signal on_enemy_died(enemy:Enemy)
 
 const FLASH_MATERIAL = preload("uid://coi4nu8ohpgeo")
 const FLOATING_TEXT = preload("uid://c1sti5gh5yk0y")
+const COINS_SCENE = preload("uid://c0gxgyeg3phog")
 
+const COMMON_STYLES = preload("uid://qyev2vjcdknr")
+const EPIC_STYLES = preload("uid://dr2xw2hayf05t")
+const LEGENDARY_STYLES = preload("uid://cguomxq65meai")
+const RARE_STYLES = preload("uid://dbhd8ppk17who")
 const UPGRADE_PROBABILITY_CONFIG = {
 	"rare" : { "start_wave": 2, "base_multi": 0.06 },
 	"epic" : { "start_wave": 4, "base_multi": 0.02 },
@@ -19,10 +25,6 @@ const SHOP_PROBABILITY_CONFIG = {
 	"epic" : { "start_wave": 4, "base_multi": 0.06 },
 	"legendary" : { "start_wave": 7, "base_multi": 0.01 }
 }
-const COMMON_STYLES = preload("uid://qyev2vjcdknr")
-const EPIC_STYLES = preload("uid://dr2xw2hayf05t")
-const LEGENDARY_STYLES = preload("uid://cguomxq65meai")
-const RARE_STYLES = preload("uid://dbhd8ppk17who")
 
 enum UpgradeTier{
 	COMMON,

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0oa62f6hadl0"]
+[gd_scene format=3 uid="uid://b0oa62f6hadl0"]
 
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="1_fvc8g"]
 [ext_resource type="Script" uid="uid://cwp75to0hr8g1" path="res://scenes/unit/scripts/unit.gd" id="1_vh40f"]
@@ -237,35 +237,33 @@ _data = {
 &"move": SubResource("Animation_vgvef")
 }
 
-[node name="Unit" type="Area2D"]
+[node name="Unit" type="Area2D" unique_id=39432522]
 script = ExtResource("1_vh40f")
 
-[node name="Visuals" type="Node2D" parent="."]
+[node name="Visuals" type="Node2D" parent="." unique_id=1575876315]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
 
-[node name="Shadow" type="Sprite2D" parent="Visuals"]
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=689515039]
 modulate = Color(0.17641911, 0.17641908, 0.17641908, 1)
 position = Vector2(0, -1)
 scale = Vector2(0.7, 1)
 texture = ExtResource("1_fvc8g")
 
-[node name="Sprite" type="Sprite2D" parent="Visuals"]
+[node name="Sprite" type="Sprite2D" parent="Visuals" unique_id=1865384505]
 unique_name_in_owner = true
 position = Vector2(0, -63)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602572869]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_0wuuu")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1351300395]
+libraries/ = SubResource("AnimationLibrary_0wuuu")
 
-[node name="HurtBoxComponent" parent="." instance=ExtResource("3_vh40f")]
+[node name="HurtBoxComponent" parent="." unique_id=748523950 instance=ExtResource("3_vh40f")]
 
-[node name="HealthComponent" parent="." instance=ExtResource("4_bhlit")]
+[node name="HealthComponent" parent="." unique_id=1911117253 instance=ExtResource("4_bhlit")]
 
-[node name="HealthBar" parent="." instance=ExtResource("5_vgvef")]
+[node name="HealthBar" parent="." unique_id=692006565 instance=ExtResource("5_vgvef")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -278,7 +276,7 @@ grow_vertical = 1
 back_color = Color(0, 0, 0, 1)
 fill_color = Color(0, 0, 0, 1)
 
-[node name="FlashTimer" type="Timer" parent="."]
+[node name="FlashTimer" type="Timer" parent="." unique_id=336631185]
 wait_time = 0.2
 one_shot = true
 

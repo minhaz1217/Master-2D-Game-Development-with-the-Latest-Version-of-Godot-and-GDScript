@@ -24,10 +24,10 @@ script = ExtResource("2_dqqec")
 flock_push = 20.0
 stats = ExtResource("3_dqqec")
 
-[node name="Sprite" parent="Visuals" index="1"]
+[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(1575876315) index="1" unique_id=1865384505]
 texture = ExtResource("2_8f4cj")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1602572869]
 position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_dqqec")
 debug_color = Color(0.956392, 1.2513996e-06, 0.54075235, 0.41960785)
@@ -40,7 +40,7 @@ collision_mask = 2
 position = Vector2(0, -28)
 shape = SubResource("CircleShape2D_nux14")
 
-[node name="HurtBoxComponent" parent="." index="4"]
+[node name="HurtBoxComponent" parent="." index="4" unique_id=748523950]
 collision_layer = 8
 collision_mask = 16
 
@@ -58,7 +58,7 @@ position = Vector2(1, -31)
 shape = SubResource("CircleShape2D_kjxto")
 debug_color = Color(0, 0.649354, 0.10258024, 0.41960785)
 
-[node name="HealthBar" parent="." index="7"]
+[node name="HealthBar" parent="." index="7" unique_id=692006565]
 back_color = Color(0.015686275, 0.05490196, 0.16862746, 1)
 fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)
 
@@ -66,4 +66,5 @@ fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)
 wait_time = 0.4
 one_shot = true
 
+[connection signal="on_unit_died" from="HealthComponent" to="." method="_on_health_component_on_unit_died"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

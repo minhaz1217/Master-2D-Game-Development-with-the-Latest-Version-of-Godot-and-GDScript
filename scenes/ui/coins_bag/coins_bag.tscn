@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://yaqp467r4aub"]
+
+[ext_resource type="Script" uid="uid://iykoeqk0veai" path="res://scenes/ui/coins_bag/coins_bag.gd" id="1_sdugs"]
+[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="1_xjwma"]
+
+[node name="CoinsBag" type="HBoxContainer" unique_id=1394718726]
+custom_minimum_size = Vector2(128, 96)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sdugs")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=333448015]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_xjwma")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coins" type="Label" parent="." unique_id=492446589]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "30"
