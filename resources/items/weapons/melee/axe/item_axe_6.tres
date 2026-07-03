@@ -2,14 +2,28 @@
 
 [ext_resource type="Texture2D" uid="uid://d8op56q0uwh1" path="res://assets/sprites/Weapons/Icons/weapon_axe_icon.png" id="1_1r33k"]
 [ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="2_a3f86"]
+[ext_resource type="PackedScene" uid="uid://n4vuntvu058p" path="res://scenes/weapon_axe/weapon_axe.tscn" id="2_m0rl2"]
 [ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="3_m0rl2"]
 
 [sub_resource type="Resource" id="Resource_wusse"]
 script = ExtResource("3_m0rl2")
 metadata/_custom_type_script = "uid://drrgiesukxsg3"
 
+[sub_resource type="Resource" id="Resource_i86bm"]
+script = ExtResource("3_m0rl2")
+metadata/_custom_type_script = "uid://drrgiesukxsg3"
+
+[sub_resource type="Resource" id="Resource_67gbg"]
+script = ExtResource("2_a3f86")
+scene = ExtResource("2_m0rl2")
+stats = SubResource("Resource_i86bm")
+item_icon = ExtResource("1_1r33k")
+metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"
+
 [resource]
 script = ExtResource("2_a3f86")
+scene = ExtResource("2_m0rl2")
 stats = SubResource("Resource_wusse")
+upgrade_to = SubResource("Resource_67gbg")
 item_icon = ExtResource("1_1r33k")
 metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"

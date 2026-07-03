@@ -9,6 +9,7 @@ signal on_enemy_died(enemy:Enemy)
 const FLASH_MATERIAL = preload("uid://coi4nu8ohpgeo")
 const FLOATING_TEXT = preload("uid://c1sti5gh5yk0y")
 const COINS_SCENE = preload("uid://c0gxgyeg3phog")
+const ITEM_CARD_SCENE = preload("uid://d4ahqxku4821t")
 
 const COMMON_STYLES = preload("uid://qyev2vjcdknr")
 const EPIC_STYLES = preload("uid://dr2xw2hayf05t")
@@ -35,8 +36,8 @@ enum UpgradeTier{
 
 var player: Player
 var game_paused := false
-var coins: int
-
+var coins: int = 500
+var equipped_weapons: Array[ItemBase] = []
 func get_harvesting_coins() -> void:
 	coins += player.stats.harvesting
 

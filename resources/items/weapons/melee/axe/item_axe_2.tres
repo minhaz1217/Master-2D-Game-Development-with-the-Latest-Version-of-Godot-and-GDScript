@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://d8op56q0uwh1" path="res://assets/sprites/Weapons/Icons/weapon_axe_icon.png" id="1_vmy7e"]
 [ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="2_rqe4i"]
+[ext_resource type="PackedScene" uid="uid://n4vuntvu058p" path="res://scenes/weapon_axe/weapon_axe.tscn" id="2_wd6yw"]
 [ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="3_wd6yw"]
+[ext_resource type="Resource" uid="uid://bnbvtt5iw2pd3" path="res://resources/items/weapons/melee/axe/item_axe_3.tres" id="5_wd6yw"]
 
 [sub_resource type="Resource" id="Resource_wusse"]
 script = ExtResource("3_wd6yw")
@@ -10,6 +12,9 @@ metadata/_custom_type_script = "uid://drrgiesukxsg3"
 
 [resource]
 script = ExtResource("2_rqe4i")
+scene = ExtResource("2_wd6yw")
 stats = SubResource("Resource_wusse")
+upgrade_to = ExtResource("5_wd6yw")
+item_name = "Axe II"
 item_icon = ExtResource("1_vmy7e")
 metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"

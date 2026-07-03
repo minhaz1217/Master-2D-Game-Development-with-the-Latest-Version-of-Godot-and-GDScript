@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://bilnudsich4cf" path="res://resources/items/weapons/melee/axe/item_axe_4.tres" id="10_f1e0c"]
 [ext_resource type="Resource" uid="uid://cn3hlyqi2hjsa" path="res://resources/items/weapons/melee/axe/item_axe_5.tres" id="11_x6dh5"]
 [ext_resource type="Resource" uid="uid://vjoo4uqblcio" path="res://resources/items/weapons/melee/axe/item_axe_6.tres" id="12_h8ew1"]
+[ext_resource type="PackedScene" uid="uid://d4ahqxku4821t" path="res://scenes/ui/item_card/item_card.tscn" id="16_l4hq1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkkr"]
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
@@ -238,10 +239,8 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 3
 
-[node name="ItemCard" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=833546341]
-custom_minimum_size = Vector2(80, 80)
+[node name="ItemCard" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=825837280 instance=ExtResource("16_l4hq1")]
 layout_mode = 2
-theme_override_styles/normal = ExtResource("4_o7w7v")
 
 [node name="ItemCard2" type="Button" parent="MarginContainer/Control/Weapons/WeaponsContainer" unique_id=1538781488]
 custom_minimum_size = Vector2(80, 80)
