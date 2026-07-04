@@ -17,4 +17,5 @@ stats = SubResource("Resource_wusse")
 upgrade_to = ExtResource("5_wd6yw")
 item_name = "Axe II"
 item_icon = ExtResource("1_vmy7e")
+item_tier = 1
 metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"

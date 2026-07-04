@@ -37,7 +37,10 @@ enum UpgradeTier{
 var player: Player
 var game_paused := false
 var coins: int = 500
+
+var selected_weapon: ItemWeapon
 var equipped_weapons: Array[ItemBase] = []
+
 func get_harvesting_coins() -> void:
 	coins += player.stats.harvesting
 

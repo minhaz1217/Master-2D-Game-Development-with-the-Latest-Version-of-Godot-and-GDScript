@@ -11,7 +11,7 @@
 [ext_resource type="Resource" uid="uid://cjr7k0psdstrs" path="res://resources/items/weapons/melee/punch/item_punch_3.tres" id="6_21wy5"]
 [ext_resource type="Resource" uid="uid://4ctbgdwm7x4r" path="res://resources/items/weapons/melee/punch/item_punch_4.tres" id="7_jqy7g"]
 [ext_resource type="Resource" uid="uid://b83sf5q5u1b8" path="res://resources/items/weapons/melee/axe/item_axe_2.tres" id="8_jqy7g"]
-[ext_resource type="Resource" uid="uid://id14ry3fe5ci" path="res://resources/items/weapons/melee/axe/item_axe_3.tres" id="9_l4hq1"]
+[ext_resource type="Resource" uid="uid://bnbvtt5iw2pd3" path="res://resources/items/weapons/melee/axe/item_axe_3.tres" id="9_l4hq1"]
 [ext_resource type="Resource" uid="uid://bilnudsich4cf" path="res://resources/items/weapons/melee/axe/item_axe_4.tres" id="10_f1e0c"]
 [ext_resource type="Resource" uid="uid://cn3hlyqi2hjsa" path="res://resources/items/weapons/melee/axe/item_axe_5.tres" id="11_x6dh5"]
 [ext_resource type="Resource" uid="uid://vjoo4uqblcio" path="res://resources/items/weapons/melee/axe/item_axe_6.tres" id="12_h8ew1"]
@@ -284,6 +284,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6of6o")
 text = "Next Wave"
 
 [node name="CombineButton" type="Button" parent="MarginContainer/Control/VBoxContainer" unique_id=523225214]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_whl1y")

@@ -15,5 +15,7 @@ script = ExtResource("2_ko75d")
 scene = ExtResource("2_fxfqt")
 stats = SubResource("Resource_wusse")
 upgrade_to = ExtResource("5_wlh0c")
+item_name = "Axe III"
 item_icon = ExtResource("1_5sugg")
+item_tier = 2
 metadata/_custom_type_script = "uid://dt7tu5wgsfk5f"

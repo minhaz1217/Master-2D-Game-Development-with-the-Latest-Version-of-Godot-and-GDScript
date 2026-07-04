@@ -10,6 +10,9 @@ const SHOP_CARD_SCENE = preload("uid://csmrkxii0a74i")
 @onready var items_container: HBoxContainer = %ItemsContainer
 @onready var passives_container: GridContainer = %PassivesContainer
 @onready var weapons_container: GridContainer = %WeaponsContainer
+@onready var combine_button: Button = %CombineButton
+
+var context_card: ItemCard
 
 func _ready() -> void:
 	for child in passives_container.get_children(): child.queue_free()
@@ -47,4 +50,17 @@ func _on_item_purchased(item: ItemBase)->void:
 	item_card.item = item
 	
 func _on_item_card_select(card: ItemCard)->void:
-	pass
+	context_card = card
+	
+	var can_merge = false
+	if card.item.item_type == ItemBase.ItemType.WEAPON:
+		var count := 0
+		for weapon: ItemWeapon in Global.equipped_weapons:
+			if weapon.item_name == card.item.item_name:
+				count += 1
+		
+		if count >= 2:
+			can_merge = true
+	
+	combine_button.disabled = not can_merge
+			
