@@ -63,4 +63,38 @@ func _on_item_card_select(card: ItemCard)->void:
 			can_merge = true
 	
 	combine_button.disabled = not can_merge
-			
+
+func _on_combine_button_pressed() -> void:
+	if not context_card:
+		return
+		
+	var clicked_weapon := context_card.item as ItemWeapon
+	if not clicked_weapon.upgrade_to:
+		return
+	
+	var weapons_to_remove:Array[WeaponBase] = Global.player.current_weapons.filter(
+		func(w:WeaponBase):return w.data.item_name == clicked_weapon.item_name).slice(0,2)
+		
+	var card_to_remove  = weapons_container.get_children().filter(
+		func(w:ItemCard):return w.item.item_name == clicked_weapon.item_name).slice(0,2)
+	
+	if weapons_to_remove.size() < 2 or card_to_remove.size() < 2:
+		return
+	
+	for weapon: WeaponBase in weapons_to_remove:
+		Global.player.current_weapons.erase(weapon)
+		Global.equipped_weapons.erase(weapon.data)
+		weapon.queue_free()
+	
+	for card: ItemCard in card_to_remove:
+		card.queue_free()
+	
+	var upgraded_weapon: ItemWeapon = load(clicked_weapon.upgrade_to.resource_path)
+	Global.player.add_weapon(upgraded_weapon)
+	Global.equipped_weapons.append(upgraded_weapon)
+	
+	var new_card := create_item_card()
+	weapons_container.add_child(new_card)
+	new_card.item = upgraded_weapon
+	
+	context_card = null

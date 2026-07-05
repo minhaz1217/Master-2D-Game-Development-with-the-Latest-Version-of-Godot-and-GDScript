@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dt7tu5wgsfk5f" path="res://resources/items/weapons/item_weapon.gd" id="2_lf1vb"]
 [ext_resource type="PackedScene" uid="uid://n4vuntvu058p" path="res://scenes/weapon_axe/weapon_axe.tscn" id="2_u82r4"]
 [ext_resource type="Script" uid="uid://drrgiesukxsg3" path="res://resources/items/weapons/weapon_stats.gd" id="3_u82r4"]
-[ext_resource type="Resource" uid="uid://vjoo4uqblcio" path="res://resources/items/weapons/melee/axe/item_axe_6.tres" id="5_u82r4"]
+[ext_resource type="Resource" uid="uid://b83sf5q5u1b8" path="res://resources/items/weapons/melee/axe/item_axe_2.tres" id="5_u82r4"]
 
 [sub_resource type="Resource" id="Resource_wusse"]
 script = ExtResource("3_u82r4")
