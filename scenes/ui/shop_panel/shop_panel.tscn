@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://cn3hlyqi2hjsa" path="res://resources/items/weapons/melee/axe/item_axe_5.tres" id="11_x6dh5"]
 [ext_resource type="Resource" uid="uid://vjoo4uqblcio" path="res://resources/items/weapons/melee/axe/item_axe_6.tres" id="12_h8ew1"]
 [ext_resource type="PackedScene" uid="uid://d4ahqxku4821t" path="res://scenes/ui/item_card/item_card.tscn" id="16_l4hq1"]
+[ext_resource type="PackedScene" uid="uid://yaqp467r4aub" path="res://scenes/ui/coins_bag/coins_bag.tscn" id="17_f1e0c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chkkr"]
 bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
@@ -296,5 +297,11 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o7w7v")
 text = "Sell"
 
+[node name="CoinsBag" parent="MarginContainer/Control" unique_id=1394718726 instance=ExtResource("17_f1e0c")]
+layout_mode = 1
+offset_right = 149.0
+offset_bottom = 96.0
+
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/NewWaveButton" to="." method="_on_new_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Control/VBoxContainer/CombineButton" to="." method="_on_combine_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/VBoxContainer/SellButton" to="." method="_on_sell_button_pressed"]

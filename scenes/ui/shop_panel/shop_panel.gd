@@ -98,3 +98,25 @@ func _on_combine_button_pressed() -> void:
 	new_card.item = upgraded_weapon
 	
 	context_card = null
+
+
+func _on_sell_button_pressed() -> void:
+	if not context_card:
+		return
+	
+	var clicked_weapon := context_card.item as ItemWeapon
+	var coins := clicked_weapon.item_cost * 0.75
+	
+	var weapon_to_remove: WeaponBase = Global.player.current_weapons.filter(
+		func(w:WeaponBase): return w.data.item_name == clicked_weapon.item_name
+	).front()
+	
+	if weapon_to_remove:
+		Global.player.current_weapons.erase(weapon_to_remove)
+		Global.equipped_weapons.erase(weapon_to_remove)
+		weapon_to_remove.queue_free()
+		
+	context_card.queue_free()
+	context_card = null
+	
+	Global.coins += coins
