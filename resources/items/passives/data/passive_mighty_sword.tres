@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemPassive" format=3 uid="uid://dtgnv74mg2c5d"]
+
+[ext_resource type="Texture2D" uid="uid://cvqbrfm8g7paj" path="res://assets/sprites/Upgrades/10.png" id="1_jlslf"]
+[ext_resource type="Script" uid="uid://6ucx451d3yd6" path="res://resources/items/passives/ItemPassive.gd" id="1_o2n5b"]
+
+[resource]
+script = ExtResource("1_o2n5b")
+add_value = 15.0
+add_stats = "luck"
+item_name = "Mighty Sword"
+item_icon = ExtResource("1_jlslf")
+item_type = 2
+item_cost = 10
+metadata/_custom_type_script = "uid://6ucx451d3yd6"
