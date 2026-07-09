@@ -53,7 +53,12 @@ func _on_item_purchased(item: ItemBase)->void:
 		
 	
 	item_card.item = item
-	
+
+func create_item_weapon(weapon: ItemWeapon) -> void:
+	var card := create_item_card()
+	weapons_container.add_child(card)
+	card.item = weapon
+
 func _on_item_card_select(card: ItemCard)->void:
 	context_card = card
 	

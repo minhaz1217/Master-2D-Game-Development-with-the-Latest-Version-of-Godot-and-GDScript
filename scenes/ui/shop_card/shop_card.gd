@@ -21,9 +21,12 @@ func _set_shop_item(value: ItemBase) -> void:
 	
 	var style := Global.get_tier_styles(value.item_tier)
 	add_theme_stylebox_override("panel", style)
-	
+
 
 func _on_buy_button_pressed() -> void:
+	if Global.equipped_weapons.size() >= 6:
+		return
+		
 	if Global.coins >= shop_item.item_cost:
 		Global.coins -= shop_item.item_cost
 		on_item_purchased.emit(shop_item)
