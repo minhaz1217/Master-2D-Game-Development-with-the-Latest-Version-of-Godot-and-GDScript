@@ -58,6 +58,7 @@ func clean_arena() -> void:
 				gold_item.set_collection_target(target_center_pos)
 	
 	gold_list.clear()
+	spawner.clear_enemies()
 
 func spawn_coins(enemy: Enemy) -> void:
 	var random_angle := randf_range(0, TAU)
